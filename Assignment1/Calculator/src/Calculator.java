@@ -1,49 +1,53 @@
-import java.util.Scanner;
-public class Calculator
-{
-    public static void main(String[] args)
-    {
-        int a,b;
-        System.out.println("Enter values : ");
+import java.util.*;
 
-        Scanner sc = new Scanner(System.in);
-        a = sc.nextInt();
-        b = sc.nextInt();
+public class Calculator {
+    // Method to perform addition of two numbers
+    public void add(int a, int b) {
+        System.out.println("Addition : " + (a + b));
+    }
 
-        Operations obj = new Operations();
-        int add=obj.Add(a,b);
-        double pow=obj.Power(a,b);
-        int sub=obj.Sub(a,b);
-        int div=obj.Div(a,b);
-        int multi=obj.Multi(a,b);
+    // Method to perform exponentiation of two numbers
+    public void power(int a, int b) {
+        System.out.println("Power : " + Math.pow(a, b));
+    }
 
-        System.out.println("Addition : "+add);
-        System.out.println("Power : "+pow);
-        System.out.println("Subtraction : "+sub);
-        System.out.println("Division : "+div);
-        System.out.println("Multiplication : "+multi);
+    // Method to perform subtraction of two numbers
+    public void sub(int a, int b) {
+        System.out.println("Subtraction : " + (a - b));
     }
-}
-class Operations
-{
-    int Add(int i, int j)
-    {
-        return(i+j);
+
+    // Method to perform division of two numbers
+    public void div(int a, int b) {
+        System.out.println("Division : " + (a / b)); // fixed error
     }
-    double Power(int i, int j)
-    {
-        return(Math.pow(i,j));
+
+    // Method to perform multiplication of two numbers
+    public void multi(int a, int b) {
+        System.out.println("Multiplication : " + (a * b));
     }
-    int Sub(int i, int j)
-    {
-        return(i-j);
+
+    // Method to calculate mean of an ArrayList of integers
+    public void mean(ArrayList<Integer> arr) {
+        int sum = 0;
+        int count = arr.size();
+        for (Integer i : arr) {
+            sum = sum + i;
+        }
+        System.out.println("Mean : " + sum / count);
     }
-    int Div(int i, int j)
-    {
-        return(i/j);
-    }
-    int Multi(int i, int j)
-    {
-        return(i*j);
+
+    // Method to calculate standard deviation of an ArrayList of integers
+    public void standardDeviation(ArrayList<Integer> arr) {
+        int sum = 0, sd = 0;
+        int count = arr.size();
+        for (Integer i : arr) {
+            sum = sum + i;
+        }
+        int mean = sum / count;
+        for (Integer i : arr) {
+            sd = (int) (sd + Math.pow((i - mean), 2));
+        }
+        sd = sd / count;
+        System.out.println("Standard Deviation : " + Math.sqrt(sd));
     }
 }
